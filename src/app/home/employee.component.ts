@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { Employee } from '../models/employee.model';
+
 @Component({
   selector: 'home',
   styleUrls: ['./employee.component.css'],
@@ -40,8 +41,9 @@ export class HomeComponent implements OnInit {
   this.qualification= ['btech','mtech','mba','phd'];
   this. coding_languages= ['C/C++','JAVA','C#','PHP','PYTHON'];
   }
+  
  onSubmit()
   {
-    console.log(this.model);
+  console.log(this.model);
   }
 }
