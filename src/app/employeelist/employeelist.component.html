@@ -24,18 +24,18 @@ table, th, td {
            <th>coding_language</th>
            <th> button </th>
   </tr>
-  <tr>
-    <td>   </td>
-    <td>  </td>
-    <td>  </td>
-     <td>  </td>
-      <td>  </td>
-       <td> </td>
-        <td>  </td>
-         <td>  </td>
-          <td>  </td>
-           <td>  </td>
-            <td>  </td>
+  <tr *ngfor = 'let emp of d'>
+    <td> {{emp.firstName}}  </td>
+    <td> {{emp.lastName}} </td>
+    <td> {{emp.emailAdress}} </td>
+     <td> {{emp.contactNo}} </td>
+      <td> {{emp.address}} </td>
+       <td> {{emp.password}}</td>
+        <td>  {{emp.gender}}</td>
+         <td> {{emp.experience}} </td>
+          <td>  {{emp.experience}}</td>
+           <td> {{emp.qualification}} </td>
+            <td> {{emp.coding_languages}} </td>
             <td> <button class="editbtn">edit</button>
             <br><br> <button class="deletebtn">delete</button> </td>
   </tr>

@@ -2,7 +2,7 @@
 <div class="container">
 <h3>Employee Management Application Form</h3>
 
-<form #form="ngForm" novalidate (ngSubmit)= "onSubmit()">
+<form #form="ngForm" novalidate >
   <div class="form-group">
      <label for="firstname"> First name: </label> <br>
   <input  type="text" class="form-control" id="firstName"  name="firstName" [(ngModel)]="model.firstName">
@@ -80,8 +80,8 @@ Gender:<br>
 <br>
 <br>
 
-
  <button class="btn btn-primary" type="Submit">Submit</button>
+ <button class="btn btn-primary" type="submit" (click)="OnSubmit(model)" [routerLink]="['/employeelist']">Submit</button>
  </div>
   </form>
   Model: {{ model | json }}

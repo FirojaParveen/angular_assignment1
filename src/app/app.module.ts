@@ -15,6 +15,7 @@ import { RepoDetailComponent } from './github/repo-detail/repo-detail.component'
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { ContactComponent } from './contact/contact.component';
 import { EmployeeListComponent } from './employeelist/employeelist.component';
+import {ProductService} from './home/employee.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,10 +35,11 @@ import { EmployeeListComponent } from './employeelist/employeelist.component';
     RouterModule.forRoot(rootRouterConfig, { useHash: true })
   ],
   providers: [
-    GithubService
+    GithubService, ProductService
   ],
   bootstrap: [ AppComponent ]
 })
+
 export class AppModule {
 
 }

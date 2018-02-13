@@ -1,12 +1,17 @@
 import {Component, OnInit} from '@angular/core';
 import { Employee } from '../models/employee.model';
-
+import {ProductService} from '../home/employee.service';
+import {Router} from '@angular/router';
 @Component({
   selector: 'home',
   styleUrls: ['./employee.component.css'],
   templateUrl: './employee.component.html'
 })
 export class HomeComponent implements OnInit {
+  d : any;
+  constructor(private router: Router, private shareservices: ProductService  ) {
+    
+  }
   experiences : number[];
   qualification : string[];
   coding_languages : string[];
@@ -45,5 +50,8 @@ export class HomeComponent implements OnInit {
  onSubmit()
   {
   console.log(this.model);
+  this.d = this.model;
+   this.shareservices.setdata(this.d);
+   this.router.navigate(['/'])
   }
 }
