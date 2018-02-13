@@ -46,6 +46,8 @@ export class HomeComponent implements OnInit {
   this.qualification= ['btech','mtech','mba','phd'];
   this. coding_languages= ['C/C++','JAVA','C#','PHP','PYTHON'];
   var uname=(this.route.snapshot.params['uname']);
+  if(uname != undefined)
+  {
   for(var i =0;i<this.shareservices.dataarray.length;i++)
   {
     if(this.shareservices.dataarray[i].username==uname)
@@ -56,7 +58,7 @@ export class HomeComponent implements OnInit {
   }
   this.shareservices.deletedata(this.shareservices.dataarray[i]);
   }
-  
+  }
  onSubmit(model : Employee)
   {
   console.log(this.model);
