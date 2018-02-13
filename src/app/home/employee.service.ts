@@ -5,13 +5,25 @@ import { Employee } from '../models/employee.model';
 import {HomeComponent} from '../home/employee.component';
 @Injectable()
 export class ProductService {
-    data : any=[];
+    dataarray : any=[];
      setdata(data : any)
      {
-       this.data.push(data);
+       this.dataarray.push(data);
      }
      getdata()
      {
-         return this.data;
+         return this.dataarray;
+     }
+     deletedata(data : any)
+     {
+         for(var i=0;i<this.dataarray.length;i++)
+         {
+             if(this.dataarray[i].username==data.username)
+             {
+                 this.dataarray.splice(i,1);
+                  
+             }
+         }
+         return(this.dataarray);
      }
 }

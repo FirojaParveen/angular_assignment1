@@ -30,14 +30,15 @@ table, th, td {
     <td> {{emp.emailAdress}} </td>
      <td> {{emp.contactNo}} </td>
       <td> {{emp.address}} </td>
+      <td> {{emp.username}} </td>
        <td> {{emp.password}}</td>
         <td>  {{emp.gender}}</td>
          <td> {{emp.experience}} </td>
           <td>  {{emp.experience}}</td>
            <td> {{emp.qualification}} </td>
             <td> {{emp.coding_languages}} </td>
-            <td> <button class="editbtn">edit</button>
-            <br><br> <button class="deletebtn">delete</button> </td>
+            <td> <button class="editbtn"  (click)="editentry(emp)">edit</button>
+            <br><br> <button class="deletebtn" (click)="deleteentry(emp)">delete</button> </td>
   </tr>
   
 </table>

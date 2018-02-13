@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { Employee } from '../models/employee.model';
 import {ProductService} from '../home/employee.service';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 @Component({
   selector: 'home',
   styleUrls: ['./employee.component.css'],
@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   d : any;
-  constructor(private router: Router, private shareservices: ProductService  ) {
+  constructor(private router: Router, private shareservices: ProductService , private route:ActivatedRoute) {
     
   }
   experiences : number[];
@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   code_language = [];
      box_check ( lang: string)
      {
-       for(var i=0;i<5;i++)
+       for(var i=0;i<this.coding_languages.length;i++)
        {
          var flag=0;
          if (this.code_language[i] == lang)
@@ -40,18 +40,28 @@ export class HomeComponent implements OnInit {
  
 
  model = new Employee('' , '' , '' , '', '', '' , '','','','', this.code_language);
-
+ 
   ngOnInit(){
   this.experiences= [0,1,2,3,4,5];
   this.qualification= ['btech','mtech','mba','phd'];
   this. coding_languages= ['C/C++','JAVA','C#','PHP','PYTHON'];
+  var uname=(this.route.snapshot.params['uname']);
+  for(var i =0;i<this.shareservices.dataarray.length;i++)
+  {
+    if(this.shareservices.dataarray[i].username==uname)
+    {
+      this.model=this.shareservices.dataarray[i];
+      break;
+    }
+  }
+  this.shareservices.deletedata(this.shareservices.dataarray[i]);
   }
   
- onSubmit()
+ onSubmit(model : Employee)
   {
   console.log(this.model);
   this.d = this.model;
    this.shareservices.setdata(this.d);
-   this.router.navigate(['/'])
+   this.router.navigate(['/employeelist']);
   }
 }

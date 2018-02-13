@@ -9,6 +9,8 @@ import { EmployeeListComponent } from './employeelist/employeelist.component';
 import { HomeComponent } from './home/employee.component';
 export const rootRouterConfig: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {path: 'employee/:uname', component : HomeComponent},
+
   { path: 'employee', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'github', component: RepoBrowserComponent,
